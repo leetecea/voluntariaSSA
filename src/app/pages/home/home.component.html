@@ -1,5 +1,17 @@
-<section>
-  <div class="imageVoluntariado">
-    <img src="../../../assets/fotoHome.png" alt="">
-  </div>
+<section class="contain">
+  <section>
+    <div class="imageVoluntariado">
+      <img src="../../../assets/fotoHome.png" alt="">
+    </div>
+  </section>
+
+  <section class="containerVagas">
+    <h2>Vagas de voluntariado</h2>
+    <div class="listVagas">
+       <app-lista-vagas *ngFor="let listaDeVagas of listaDeVagas.slice(0,4)" [listaDeVagas]="listaDeVagas"></app-lista-vagas>
+    </div>
+  </section>
+  <a [routerLink]="['/vagas']" class="maisVagas">Ver todas as vagas
+    <img  src="../../../assets/more.png" alt="Ícone de mais para abrir página de vagas">
+  </a>
 </section>

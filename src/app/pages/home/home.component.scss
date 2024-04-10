@@ -1,3 +1,7 @@
+.contain{
+  display: flex;
+  flex-direction: column;
+}
 .imageVoluntariado{
   background-color: #A7D7CB;
   width: 100%;
@@ -8,4 +12,32 @@
 .imageVoluntariado img{
   object-fit: cover;
 
+}
+
+.containerVagas{
+  padding: 2em;
+
+  h2{
+    margin-left: 2em;
+    font-weight: 500;
+  }
+}
+
+.listVagas{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.maisVagas{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .2em;
+  text-decoration: none;
+  color:black;
+
+  img{
+    width: 2em;
+    height: 2em;
+  }
 }

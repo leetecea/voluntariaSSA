@@ -1,23 +1,21 @@
-import { VagasService } from './../../services/vagas.service';
-import { Component } from '@angular/core';
-import { ListaVagasComponent } from '../../components/lista-vagas/lista-vagas.component';
-import { Vagas } from '../../interface/Vagas';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Vagas } from './../../interface/Vagas';
+import { Component } from '@angular/core';
+import { VagasService } from '../../services/vagas.service';
+import { ListaVagasComponent } from '../../components/lista-vagas/lista-vagas.component';
+
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-vagas',
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink,
     ListaVagasComponent
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './vagas.component.html',
+  styleUrl: './vagas.component.scss'
 })
-export class HomeComponent {
-
+export class VagasComponent {
   listaDeVagas: Vagas[] = [];
 
   constructor(private vagasService: VagasService){
@@ -25,5 +23,4 @@ export class HomeComponent {
       this.listaDeVagas = listaDeVagas;;
     })
   }
-
 }
