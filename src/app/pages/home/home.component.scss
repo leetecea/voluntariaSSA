@@ -15,7 +15,10 @@
 }
 
 .containerVagas{
-  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding-top: 3em;
 
   h2{
     margin-left: 2em;

@@ -1,19 +1,4 @@
 <main>
-  <header>
-    <div class="containHeader">
-      <a class="containLogo" [routerLink]="['/']">
-        <img src="../assets/logo.png" alt="Logo da VoluntáriaSSA">
-        <h1>VoluntáriaSSA</h1>
-      </a>
-      <nav>
-        <ul>
-          <li><a [routerLink]="['/']">Home</a></li>
-          <li><a [routerLink]="['/vagas']">Vagas</a></li>
-          <li><a [routerLink]="['/empresas-e-ongs']">Empresas/ONGs</a></li>
-          <li ><a [routerLink]="['/login']" >Entrar</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <app-header></app-header>
   <router-outlet></router-outlet>
 </main>

@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Vagas } from './../../interface/Vagas';
 import { Component } from '@angular/core';
-import { VagasService } from '../../services/vagas.service';
 import { ListaVagasComponent } from '../../components/lista-vagas/lista-vagas.component';
-
+import { RequestService } from '../../services/requests.service';
 
 @Component({
   selector: 'app-vagas',
@@ -18,9 +17,11 @@ import { ListaVagasComponent } from '../../components/lista-vagas/lista-vagas.co
 export class VagasComponent {
   listaDeVagas: Vagas[] = [];
 
-  constructor(private vagasService: VagasService){
-    this.vagasService.getAllVagas().then((listaDeVagas : Vagas[]) => {
+  constructor(private requestsService: RequestService){
+    this.requestsService.getAllVagas().then((listaDeVagas : Vagas[]) => {
       this.listaDeVagas = listaDeVagas;;
     })
   }
+
+
 }

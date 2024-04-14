@@ -1,0 +1,24 @@
+<header>
+  <div class="containHeader">
+    <a class="containLogo" [routerLink]="['/']">
+      <img src="../assets/logo.png" alt="Logo da VoluntáriaSSA">
+      <h1>VoluntáriaSSA</h1>
+    </a>
+    <nav>
+      <ul>
+        <li [routerLinkActive]="'active'">
+          <a [routerLink]="['/home']" >Home</a>
+        </li>
+        <li [routerLinkActive]="'active'">
+          <a [routerLink]="['/vagas']">Vagas</a>
+        </li>
+        <li [routerLinkActive]="'active'">
+          <a [routerLink]="['/empresas-e-ongs']">Empresas/ONGs</a>
+        </li>
+        <li [routerLinkActive]="'active'">
+          <a [routerLink]="['/login']" >Entrar</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
