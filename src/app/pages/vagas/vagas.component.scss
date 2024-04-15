@@ -10,7 +10,13 @@
     font-size: 1.8em;
   }
 }
-
+.box-title{
+  h3{
+    text-align: center;
+    font-weight: 400;
+    padding-top: .5em;
+  }
+}
 .listaCards{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
