@@ -11,7 +11,7 @@
                formControlName="email"
                (blur)="updateErrorMessage()"
                required>
-        @if (applyForm?.get('email')?.invalid) {
+        @if (applyForm.get('email')?.invalid) {
           <mat-error>{{errorMessage}}</mat-error>
         }
       </mat-form-field>
