@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { merge } from 'rxjs';
 @Component({
   selector: 'app-login',
@@ -22,26 +22,36 @@ import { merge } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   hide = true;
+  applyForm!: FormGroup;
+  errorMessage: string = '';
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  constructor(private formBuilder: FormBuilder) { }
 
-  errorMessage = '';
-
-  constructor() {
-    merge(this.email.statusChanges, this.email.valueChanges)
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => this.updateErrorMessage());
+  ngOnInit() {
+    this.applyForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', Validators.required]
+    });
   }
 
   updateErrorMessage() {
-    if (this.email.hasError('required')) {
+    if (this.applyForm?.hasError('required')) {
       this.errorMessage = 'You must enter a value';
-    } else if (this.email.hasError('email')) {
+    } else if (this.applyForm?.hasError('email')) {
       this.errorMessage = 'Not a valid email';
     } else {
       this.errorMessage = '';
+    }
+  }
+
+  submitApplication() {
+    if (this.applyForm?.valid) {
+      console.log('Email:', this.applyForm.value.email);
+      console.log('Senha:', this.applyForm.value.senha);
+    } else {
+      console.log('Formulário inválido');
     }
   }
 }
